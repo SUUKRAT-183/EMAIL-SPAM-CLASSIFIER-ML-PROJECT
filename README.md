@@ -1,76 +1,97 @@
-# EMAIL-SPAM-CLASSIFIER-ML-PROJECT
+# Email Spam Classifier using Machine Learning
 
 ## Overview
-This project implements a Machine Learning–based Email Spam Classification system.  
-The model classifies emails as **Spam** or **Ham (Not Spam)** using supervised learning techniques.
+This project implements a machine learning–based email spam classification system.
+The objective is to classify emails as **Spam** or **Ham (Not Spam)** using supervised
+learning techniques with a strong emphasis on precision.
 
-The training and evaluation of models are performed in a Jupyter Notebook, and a simple Streamlit application is provided to demonstrate the classification workflow.
+All model training, evaluation, and analysis are performed in a Jupyter Notebook.
 
 ---
 
 ## Dataset
-- Source: Kaggle (Email Spam Classification Dataset)
-- The dataset used was **already pre-vectorized**, containing numerical features suitable for direct model training.
-- No additional text vectorization was required during training.
+- **Source:** Kaggle (Email Spam Classification Dataset)
+- The dataset is **pre-vectorized**, where each email is represented using numerical
+  word-frequency features.
+- Since the data was already vectorized, no additional text preprocessing or feature
+  extraction was required.
 
 ---
 
 ## Models Used
 The following machine learning models were trained and evaluated:
-- Support Vector Machine (SVM)
-- Gaussian Naive Bayes (GNB)
-- Bernoulli Naive Bayes (BNB)
-- Multinomial Naive Bayes (MNB)
 
-Performance comparison was done using accuracy,precision and confusion matrices.
+- **Bernoulli Naive Bayes (BNB)**
+- **Gaussian Naive Bayes (GNB)**
+- **Multinomial Naive Bayes (MNB)**
+- **Support Vector Machine (SVM)**
+
+Model performance was compared using:
+- Accuracy  
+- Precision  
+- Confusion Matrix  
+
+Among all evaluated models, **Support Vector Machine (SVM)** demonstrated the best
+overall precision and was selected as the final model.
+
+---
+
+## Workflow
+1. Dataset loading and inspection  
+2. Train–test split  
+3. Model training  
+4. Model evaluation using standard classification metrics  
+5. Final model selection and serialization using Pickle  
 
 ---
 
 ## Technologies Used
 
 ### Programming Language
-- **Python**  
-  The core language used for scripting the entire workflow, from data processing to model training and deployment.
+- **Python** – Core language used for implementing the complete machine learning workflow.
 
----
+### Machine Learning & Evaluation
+- **Scikit-learn** – Used for implementing Naive Bayes variants and Support Vector Machine (SVM),
+  performing train–test splits, and evaluating models using accuracy, precision, and
+  confusion matrices.
 
-### Machine Learning & Modeling
-- **Scikit-learn**  
-  Used to implement machine learning algorithms such as **Support Vector Machine (SVM)**, **Naive Bayes**, and **Random Forest**, perform train–test splits, and evaluate model performance using metrics like accuracy and confusion matrices.
-
----
-
-### Data Manipulation & Analysis
-- **Pandas**  
-  Used for loading the dataset, creating data frames, and managing structured data.
-- **NumPy**  
-  Used for efficient numerical computations and handling multi-dimensional arrays.
-
----
+### Data Handling
+- **Pandas** – Used for dataset loading and data manipulation.  
+- **NumPy** – Used for numerical operations and array handling.
 
 ### Data Visualization
-- **Matplotlib / Seaborn**  
-  Used to generate static plots and heatmaps (e.g., confusion matrices) to visualize and compare model performance.
-
----
+- **Matplotlib**
+- **Seaborn**  
+Used for plotting confusion matrices and visual comparison of model performance.
 
 ### Development Environment
-- **Google Colab**  
-  A cloud-based Jupyter Notebook environment used for writing code, training models, and leveraging free CPU/GPU resources.
+- **Google Colab** – Cloud-based Jupyter Notebook environment used for development,
+  training, and evaluation.
 
 ---
 
-### Web Framework & Deployment
-- **Streamlit**  
-  Used to build an interactive web application (`app.py`) that allows users to input email text and receive real-time spam classification results.
-
-
-## Working Model Images 
-
-SPAM
-<img width="1810" height="828" alt="Screenshot 2026-01-12 234326" src="https://github.com/user-attachments/assets/4fbd7b09-35c8-45fb-8a8a-e633e74c6b39" />
+## Model Persistence
+The final trained **SVM model** was saved using Python’s `pickle` module as
+`spam_classifier.pkl`.  
+This allows the trained model to be reused later without retraining.
 
 ---
 
-HAM
-<img width="1846" height="810" alt="Screenshot 2026-01-12 234250" src="https://github.com/user-attachments/assets/b4a2914b-6e09-455e-b766-5240e4c85e6d" />
+## Repository Contents
+- `Email_Spam_Detection.ipynb` – Main notebook containing data analysis, model training,
+  and evaluation  
+- `spam_classifier.pkl` – Serialized trained SVM model  
+- `requirements.txt` – Python dependencies  
+- `PPT/` – Project presentation files  
+
+---
+
+## Conclusion
+This project demonstrates the effectiveness of classical machine learning algorithms
+for email spam classification. Through comparative evaluation, SVM was identified as
+the most suitable model due to its higher precision and reliable generalization
+performance.
+
+---
+
+*This project was developed for academic and learning purposes.*
